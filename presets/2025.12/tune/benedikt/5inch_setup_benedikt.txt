@@ -26,6 +26,10 @@
 # -- General --
 set simplified_gyro_filter = ON
 set simplified_dterm_filter = ON
+set small_angle = 180
+set prearm_allow_rearm = ON
+beacon RX_LOST
+beacon RX_SET
 
 # -- RPM filtering --
 set dshot_bidir = ON
@@ -368,3 +372,30 @@ set tpa_breakpoint = 1300
     aux 5 40 8 900 2100 0 0
     aux 6 49 4 1900 2100 0 0
 #$ OPTION END
+
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Blackbox
+    #$ OPTION BEGIN (UNCHECKED): On
+        set blackbox_sample_rate = 1/4
+        set blackbox_device = SPIFLASH
+        set blackbox_disable_pids = OFF
+        set blackbox_disable_rc = OFF
+        set blackbox_disable_setpoint = OFF
+        set blackbox_disable_bat = ON
+        set blackbox_disable_alt = ON
+        set blackbox_disable_rssi = ON
+        set blackbox_disable_gyro = OFF
+        set blackbox_disable_gyrounfilt = OFF
+        set blackbox_disable_acc = OFF
+        set blackbox_disable_attitude = ON
+        set blackbox_disable_debug = OFF
+        set blackbox_disable_motors = OFF
+        set blackbox_disable_rpm = OFF
+        set blackbox_mode = NORMAL
+        set blackbox_high_resolution = OFF
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Off
+        set blackbox_device = NONE
+    #$ OPTION END
+    
+#$ OPTION_GROUP END
