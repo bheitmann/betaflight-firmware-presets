@@ -23,6 +23,10 @@
 #$ INCLUDE: presets/2025.12/rc_link/defaults.txt
 #$ INCLUDE: presets/4.5/filters/defaults.txt
 
+# -- General --
+set simplified_gyro_filter = ON
+set simplified_dterm_filter = ON
+
 # -- RPM filtering --
 set dshot_bidir = ON
 set rpm_filter_weights = 100,20,100
@@ -334,4 +338,33 @@ set tpa_breakpoint = 1300
         set osd_aux_scale = 200
         set osd_aux_symbol = 65
         set osd_craftname_msgs = OFF
+#$ OPTION END
+
+#$ OPTION_GROUP BEGIN (EXCLUSIVE) Battery Cell Count
+    #$ OPTION BEGIN (UNCHECKED): 4s
+        set force_battery_cell_count = 4
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): 6s
+        set force_battery_cell_count = 6
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): 8s
+        set force_battery_cell_count = 8
+    #$ OPTION END
+
+    #$ OPTION BEGIN (UNCHECKED): Auto
+        set force_battery_cell_count = 0
+    #$ OPTION END
+    
+#$ OPTION_GROUP END
+
+#$ OPTION BEGIN (UNCHECKED): Benedikt Modes
+    aux 0 0 0 1900 2100 0 0
+    aux 1 1 2 1900 2100 0 0
+    aux 2 13 5 1900 2100 0 0
+    aux 3 35 1 1400 2100 0 0
+    aux 4 36 3 1900 2100 0 0
+    aux 5 40 8 900 2100 0 0
+    aux 6 49 4 1900 2100 0 0
 #$ OPTION END
