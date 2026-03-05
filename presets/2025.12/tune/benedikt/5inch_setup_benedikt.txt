@@ -21,7 +21,7 @@
 #$ INCLUDE_WARNING: misc/warnings/en/rpm_filters.txt
 #$ INCLUDE: presets/2025.12/tune/defaults.txt
 #$ INCLUDE: presets/2025.12/rc_link/defaults.txt
-#$ INCLUDE: presets/4.5/filters/defaults.txt
+#$ INCLUDE: presets/2025.12/filters/defaults.txt
 
 # -- General --
 set simplified_gyro_filter = ON
@@ -55,7 +55,7 @@ simplified_tuning apply
 set tpa_rate = 70
 set tpa_breakpoint = 1300
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE) Motors
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Motors
     #$ OPTION BEGIN (UNCHECKED): Crazy Motors (>2000g Thrust; eg. Rcinpower Wasp Major Evo Plus, AOS Supernova...)
         set simplified_master_multiplier = 75
     #$ OPTION END
@@ -66,7 +66,7 @@ set tpa_breakpoint = 1300
     
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE) Dshot settings
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Dshot settings
     #$ OPTION BEGIN (CHECKED): Dshot600
         set dshot_bidir = ON
         set motor_pwm_protocol = DSHOT600
@@ -90,7 +90,7 @@ set tpa_breakpoint = 1300
     set crashflip_auto_rearm = ON
 #$ OPTION END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE) Tunes
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Tunes
 
     #$ OPTION BEGIN (UNCHECKED): Shit Quad
 
@@ -149,7 +149,7 @@ set tpa_breakpoint = 1300
     
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE) ELRS Rate
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) ELRS Rate
 
     #$ OPTION BEGIN (UNCHECKED): 500Hz
         set feedforward_boost = 18
@@ -171,7 +171,7 @@ set tpa_breakpoint = 1300
 
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE) Select Receiver UART
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Select Receiver UART
     #$ OPTION BEGIN (UNCHECKED): UART 1
         serial UART1 64 115200 57600 0 115200
     #$ OPTION END
@@ -340,7 +340,7 @@ set tpa_breakpoint = 1300
         set osd_craftname_msgs = OFF
 #$ OPTION END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE) Battery Cell Count
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Battery Cell Count
     #$ OPTION BEGIN (UNCHECKED): 4s
         set force_battery_cell_count = 4
     #$ OPTION END
