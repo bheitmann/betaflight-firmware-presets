@@ -7,12 +7,14 @@
 
 #$ DESCRIPTION:
 #$ DESCRIPTION: <img src="https://fpv-dh.de/wp-content/uploads/2024/01/cropped-Weiss_Test.png" width="150px" style="display: block; float: left; margin-right: 10px; margin-top: 20px"/>
-#$ DESCRIPTION: <h1>Modern 5inch Racer Complete Setup"</h1>
+#$ DESCRIPTION: <h1>Modern 5inch Racer Complete Setup</h1>
 #$ DESCRIPTION: <br>
 #$ DESCRIPTION: Used by Benedikt @FPV Lions DH: https://fpv-dh.de/
 #$ DESCRIPTION: <br>
 #$ DESCRIPTION: ## Things to note:
+#$ DESCRIPTION: <br>
 #$ DESCRIPTION: - **YOU HAVE TO USE RPM FILTERING WITH THIS TUNE!**
+#$ DESCRIPTION: <br>
 #$ DESCRIPTION: - Make sure your **ADC Filter is OFF** in the hardware page
 #$ DESCRIPTION: <br>
 
@@ -49,7 +51,7 @@ simplified_tuning apply
 set tpa_rate = 70
 set tpa_breakpoint = 1300
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE): Motors
+#$ OPTION_GROUP BEGIN (EXCLUSIVE) Motors
     #$ OPTION BEGIN (UNCHECKED): Crazy Motors (>2000g Thrust; eg. Rcinpower Wasp Major Evo Plus, AOS Supernova...)
         set simplified_master_multiplier = 75
     #$ OPTION END
@@ -60,7 +62,7 @@ set tpa_breakpoint = 1300
     
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE): Dshot settings
+#$ OPTION_GROUP BEGIN (EXCLUSIVE) Dshot settings
     #$ OPTION BEGIN (CHECKED): Dshot600
         set dshot_bidir = ON
         set motor_pwm_protocol = DSHOT600
@@ -84,7 +86,7 @@ set tpa_breakpoint = 1300
     set crashflip_auto_rearm = ON
 #$ OPTION END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE): Tunes
+#$ OPTION_GROUP BEGIN (EXCLUSIVE) Tunes
 
     #$ OPTION BEGIN (UNCHECKED): Shit Quad
 
@@ -143,7 +145,7 @@ set tpa_breakpoint = 1300
     
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN (EXCLUSIVE): ELRS Rate
+#$ OPTION_GROUP BEGIN (EXCLUSIVE) ELRS Rate
 
     #$ OPTION BEGIN (UNCHECKED): 500Hz
         set feedforward_boost = 18
@@ -165,7 +167,7 @@ set tpa_breakpoint = 1300
 
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Select Receiver UART
+#$ OPTION_GROUP BEGIN (EXCLUSIVE) Select Receiver UART
     #$ OPTION BEGIN (UNCHECKED): UART 1
         serial UART1 64 115200 57600 0 115200
     #$ OPTION END
