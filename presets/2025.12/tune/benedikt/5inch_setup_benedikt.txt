@@ -46,14 +46,13 @@ set iterm_relax_cutoff = 30
 
 # -- PID values --
 set simplified_pids_mode = RPY
-set simplified_i_gain = 115
+set simplified_i_gain = 110
 set simplified_d_gain = 100
-set simplified_pi_gain = 110
+set simplified_pi_gain = 105
 set simplified_d_max_gain = 0
 set simplified_feedforward_gain = 105
 set simplified_pitch_d_gain = 95
 set simplified_pitch_pi_gain = 105
-simplified_tuning apply
  
 # -- TPA --
 set tpa_rate = 70
@@ -61,7 +60,11 @@ set tpa_breakpoint = 1300
 
 #$ OPTION_GROUP BEGIN: (EXCLUSIVE) Motors
     #$ OPTION BEGIN (UNCHECKED): Crazy Motors (>2000g Thrust; eg. Rcinpower Wasp Major Evo Plus, AOS Supernova...)
-        set simplified_master_multiplier = 75
+        set simplified_master_multiplier = 80
+        set tpa_rate = 75
+        set tpa_breakpoint = 1250
+        set simplified_feedforward_gain = 90
+        set simplified_i_gain = 100
     #$ OPTION END
 
     #$ OPTION BEGIN (UNCHECKED): Normal Motors
@@ -99,14 +102,14 @@ set tpa_breakpoint = 1300
     #$ OPTION BEGIN (UNCHECKED): Shit Quad
 
     # -- Gyro Lowpass Filters --
-        set simplified_gyro_filter_multiplier = 90
+        set simplified_gyro_filter_multiplier = 100
     
     # -- Dterm filtering --
         set dterm_lpf1_dyn_expo = 4
        
     # -- Gyro Dynamic Notches --
         set dyn_notch_count = 2
-        set dyn_notch_q = 450
+        set dyn_notch_q = 400
         set dyn_notch_max_hz = 650
         set dyn_notch_min_hz = 100
 
@@ -126,28 +129,27 @@ set tpa_breakpoint = 1300
         set dyn_notch_count = 1
         set dyn_notch_q = 500
         set dyn_notch_max_hz = 600
-        set dyn_notch_min_hz = 110
+        set dyn_notch_min_hz = 100
 
     #$ OPTION END
     
     #$ OPTION BEGIN (UNCHECKED): A Bit more aggresive
 
     # -- Gyro Lowpass Filters --
-        set gyro_lpf1_dyn_min_hz = 0
         set gyro_lpf1_static_hz = 0
-        set simplified_gyro_filter_multiplier = 125
+        set gyro_lpf2_static_hz = 0
        
     # -- Gyro Dynamic Notches --
-        set dyn_notch_count = 1
+        set dyn_notch_count = 2
         set dyn_notch_q = 500
-        set dyn_notch_min_hz = 120
-        set dyn_notch_max_hz = 550
+        set dyn_notch_min_hz = 100
+        set dyn_notch_max_hz = 600
 
     # -- Dterm filtering --
         set dterm_lpf1_dyn_expo = 6
 
     # -- RPM Filtering --
-        set rpm_filter_min_hz = 110
+        set rpm_filter_fade_range_hz = 60
     
     #$ OPTION END
     
@@ -158,7 +160,7 @@ set tpa_breakpoint = 1300
     #$ OPTION BEGIN (UNCHECKED): 500Hz
         set feedforward_boost = 18
         set feedforward_averaging = 2_POINT
-        set feedforward_jitter_factor = 5
+        set feedforward_jitter_factor = 3
         set rc_smoothing_auto_factor = 25
         set rc_smoothing_auto_factor_throttle = 25
         set osd_rssi_dbm_alarm = -95
@@ -399,3 +401,5 @@ set tpa_breakpoint = 1300
     #$ OPTION END
     
 #$ OPTION_GROUP END
+
+simplified_tuning apply
