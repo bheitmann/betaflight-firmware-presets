@@ -46,7 +46,7 @@ set iterm_relax_cutoff = 30
 
 # -- PID values --
 set simplified_pids_mode = RPY
-set simplified_i_gain = 110
+set simplified_i_gain = 100
 set simplified_d_gain = 100
 set simplified_pi_gain = 105
 set simplified_d_max_gain = 0
@@ -64,11 +64,12 @@ set tpa_breakpoint = 1300
         set tpa_rate = 75
         set tpa_breakpoint = 1250
         set simplified_feedforward_gain = 90
-        set simplified_i_gain = 100
     #$ OPTION END
 
     #$ OPTION BEGIN (UNCHECKED): Normal Motors
         set simplified_master_multiplier = 100
+        set tpa_rate = 70
+        set tpa_breakpoint = 1300
     #$ OPTION END
     
 #$ OPTION_GROUP END
@@ -128,7 +129,7 @@ set tpa_breakpoint = 1300
     # -- Gyro Dynamic Notches --
         set dyn_notch_count = 1
         set dyn_notch_q = 500
-        set dyn_notch_max_hz = 600
+        set dyn_notch_max_hz = 650
         set dyn_notch_min_hz = 100
 
     #$ OPTION END
@@ -143,7 +144,7 @@ set tpa_breakpoint = 1300
         set dyn_notch_count = 2
         set dyn_notch_q = 500
         set dyn_notch_min_hz = 100
-        set dyn_notch_max_hz = 600
+        set dyn_notch_max_hz = 650
 
     # -- Dterm filtering --
         set dterm_lpf1_dyn_expo = 6
@@ -177,33 +178,6 @@ set tpa_breakpoint = 1300
 
 #$ OPTION_GROUP END
 
-#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Select Receiver UART
-    #$ OPTION BEGIN (UNCHECKED): UART 1
-        serial UART1 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 2
-        serial UART2 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 3
-        serial UART3 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 4
-        serial UART4 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 5
-        serial UART5 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 6
-        serial UART6 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 7
-        serial UART7 64 115200 57600 0 115200
-    #$ OPTION END
-    #$ OPTION BEGIN (UNCHECKED): UART 8
-        serial UART8 64 115200 57600 0 115200
-    #$ OPTION END
-#$ OPTION_GROUP END
-
 #$ OPTION_GROUP BEGIN: Benedikt Rates
     #$ OPTION BEGIN (UNCHECKED): Rates
         set rates_type = BETAFLIGHT
@@ -221,7 +195,7 @@ set tpa_breakpoint = 1300
 
     #$ OPTION BEGIN (UNCHECKED): Throttle Curve
         set throttle_limit_type = SCALE
-        set throttle_limit_percent = 90
+        set throttle_limit_percent = 75
     #$ OPTION END
     
 #$ OPTION_GROUP END
@@ -401,5 +375,23 @@ set tpa_breakpoint = 1300
     #$ OPTION END
     
 #$ OPTION_GROUP END
+
+#$ OPTION BEGIN (UNCHECKED): Benedikt RPM-Limit
+    set rpm_limit = ON
+    set rpm_limit_p = 25
+    set rpm_limit_i = 10
+    set rpm_limit_d = 8
+    set rpm_limit_value = 26000
+    set throttle_limit_type = SCALE
+    set throttle_limit_percent = 100
+#$ OPTION END
+
+#$ OPTION BEGIN (UNCHECKED): iFlight Borg 5S RX FC 12v BEC always on (only use with that FC)
+    resource PINIO 1 C14
+    set pinio_config = 1,1,1,1
+    set pinio_box = 40,41,255,255
+    set box_user_1_name = VTX_ON_OFF
+    aux 0 40 8 900 2100 0 0
+#$ OPTION END
 
 simplified_tuning apply
