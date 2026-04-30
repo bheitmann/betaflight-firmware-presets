@@ -1,1 +1,3 @@
-This tune works ONLY with DSHOT 600 or DSHOT 300. Using anything else is extremely unsafe.
+This tune works ONLY with DSHOT 600 or DSHOT 300.
+YOU HAVE TO USE RPM FILTERING WITH THIS TUNE!
+Make sure your **ADC Filter is OFF** in the hardware page
