@@ -18,7 +18,6 @@
 #$ DESCRIPTION: - Make sure your **ADC Filter is OFF** in the hardware page
 #$ DESCRIPTION: <br>
 
-#$ INCLUDE_WARNING: misc/warnings/en/rpm_filters.txt
 #$ INCLUDE: presets/2025.12/tune/defaults.txt
 #$ INCLUDE: presets/2025.12/rc_link/defaults.txt
 #$ INCLUDE: presets/2025.12/filters/defaults.txt
